@@ -149,7 +149,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 "/v3/api-docs/**",
                 "/api/send-otp/forgotPassword",
                 "/api/forgot/password",
-                "/api/resend-otp"
+                "/api/resend-otp",
+                "/api/voucher"
         );
 
         for (String api : publicApis) {
