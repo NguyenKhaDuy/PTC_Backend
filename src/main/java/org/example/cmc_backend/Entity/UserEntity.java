@@ -51,19 +51,6 @@ public class UserEntity implements UserDetails {
     @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<BillEntity> billEntities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-    private List<MessengerEntity> messengerEntities = new ArrayList<>();
-
-    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-    private List<AIChatEntity> aiChatEntities = new ArrayList<>();
-
-    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-    private List<AISettingEntity> aiSettingEntities = new ArrayList<>();
-
-    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-    private List<AIUsageLogEntity> aiUsageLogEntities = new ArrayList<>();
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = getRoleEntities().stream()

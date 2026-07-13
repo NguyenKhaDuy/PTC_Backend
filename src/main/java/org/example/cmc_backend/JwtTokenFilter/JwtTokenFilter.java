@@ -39,10 +39,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
-//        if (isBypassToken(request)) {
-//            filterChain.doFilter(request, response);
-//            return;
-//        }
+        if (isBypassToken(request)) {
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         String token = getTokenFromRequest(request);
 
@@ -111,52 +111,52 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     private boolean isBypassToken(@NonNull HttpServletRequest request) {
 
-//        String path = request.getRequestURI();
-//
-//        if (path.startsWith("/swagger-ui")
-//                || path.startsWith("/v3/api-docs")
-//                || path.startsWith("/swagger-resources")
-//                || path.startsWith("/webjars")) {
-//            return true;
-//        }
-//
-//        if (path.startsWith("/favicon.ico")
-//                || path.startsWith("/css/")
-//                || path.startsWith("/js/")
-//                || path.startsWith("/images/")) {
-//            return true;
-//        }
-//
-//        if (path.startsWith("/login") || path.startsWith("/register")) {
-//            return true;
-//        }
-//
-//        final List<String> publicApis = Arrays.asList(
-//                "/api/forgotpassword",
-//                "/api/login",
-//                "/api/logout",
-//                "/api/resend-otp",
-//                "/api/register",
-//                "/api/verify-otp",
-//                "/api/actor/",
-//                "/api/voucher/",
-//                "/api/schedule/",
-//                "/api/movie",
-//                "/api/category",
-//                "/api/branch",
-//                "/api/seat",
-//                "/swagger-ui/**",
-//                "/v3/api-docs/**",
-//                "/api/send-otp/forgotPassword",
-//                "/api/forgot/password",
-//                "/api/resend-otp"
-//        );
-//
-//        for (String api : publicApis) {
-//            if (path.startsWith(api)) {
-//                return true;
-//            }
-//        }
+        String path = request.getRequestURI();
+
+        if (path.startsWith("/swagger-ui")
+                || path.startsWith("/v3/api-docs")
+                || path.startsWith("/swagger-resources")
+                || path.startsWith("/webjars")) {
+            return true;
+        }
+
+        if (path.startsWith("/favicon.ico")
+                || path.startsWith("/css/")
+                || path.startsWith("/js/")
+                || path.startsWith("/images/")) {
+            return true;
+        }
+
+        if (path.startsWith("/login") || path.startsWith("/register")) {
+            return true;
+        }
+
+        final List<String> publicApis = Arrays.asList(
+                "/api/forgotpassword",
+                "/api/login",
+                "/api/logout",
+                "/api/resend-otp",
+                "/api/register",
+                "/api/verify-otp",
+                "/api/actor/",
+                "/api/voucher/",
+                "/api/schedule/",
+                "/api/movie",
+                "/api/category",
+                "/api/branch",
+                "/api/seat",
+                "/swagger-ui/**",
+                "/v3/api-docs/**",
+                "/api/send-otp/forgotPassword",
+                "/api/forgot/password",
+                "/api/resend-otp"
+        );
+
+        for (String api : publicApis) {
+            if (path.startsWith(api)) {
+                return true;
+            }
+        }
 
         return true;
     }

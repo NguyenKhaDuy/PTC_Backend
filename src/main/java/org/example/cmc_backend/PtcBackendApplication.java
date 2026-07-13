@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CmcBackendApplication {
+public class PtcBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CmcBackendApplication.class, args);
+		SpringApplication.run(PtcBackendApplication.class, args);
 	}
 
 }
