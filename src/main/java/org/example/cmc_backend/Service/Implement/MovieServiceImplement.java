@@ -70,6 +70,7 @@ public class MovieServiceImplement implements MovieService {
                 ScheduleDTO scheduleDTO = new ScheduleDTO();
                 modelMapper.map(scheduleEntity, scheduleDTO);
 
+
                 RoomDTO roomDTO = new RoomDTO();
                 modelMapper.map(scheduleEntity.getRoomEntity(), roomDTO);
 
